@@ -1,3 +1,141 @@
 #heading {
     color: red;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.logo {
+    width: 115px;
+    height: 115px;
+}
+
+.nav-items {
+    padding: 0 20px;
+}
+
+.nav-items > ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-items > ul > li {
+    padding: 10px;
+    margin: 10px;
+}
+
+.search {
+    padding: 10px;
+    margin: 10px;
+}
+
+.restaurant-conatiner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* flex-wrap: wrap; */
+    /* display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap; */
+    gap: 16px;
+    /* justify-content: center; */
+    margin: 20px 30px;
+    padding: 20px 30px;
+}
+
+/* .restaurant-card {
+    padding: 5px;
+    width: 350px;
+    height: 470px;
+    border-radius: 10%;
+}
+
+.restaurant-card:hover {
+    cursor: pointer;
+    border: 1px solid black;
+} */
+
+.restaurant-logo {
+    margin: 5px;
+    width: 340px;
+    height: 230px;
+    border-radius: 10%;
+}
+
+/* card baseline */
+.restaurant-card {
+  background: #fff;
+  padding: 12px;
+  width: 350px;
+  height: 470px;
+  border-radius: 8px;
+  border: 1px solid transparent;               /* keep layout stable */
+  transition: transform 180ms cubic-bezier(.2,.8,.2,1),
+              box-shadow 180ms cubic-bezier(.2,.8,.2,1),
+              border-color 180ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform, box-shadow;
+}
+
+/* hover / keyboard focus pop */
+.restaurant-card:hover,
+.restaurant-card:focus-within,
+.restaurant-card:focus-visible {
+  transform: translateY(-4px);                  /* tiny lift */
+  box-shadow: 0 12px 24px rgba(16,24,40,0.08),  /* soft large shadow */
+              0 4px 8px rgba(16,24,40,0.06);     /* subtle near shadow */
+  border-color: rgba(0,0,0,0.06);               /* faint edge */
+}
+
+/* active (press) state */
+.restaurant-card:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(16,24,40,0.06);
+}
+
+/* prefer reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .restaurant-card {
+    transition: none;
+    transform: none;
+  }
+}
+
+.filter-btn {
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.shimmer-card {
+  width: 350px;
+  height: 470px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.login-btn {
+    width: 80px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;;
+}
+
+.search-btn {
+    margin-left: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
