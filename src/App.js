@@ -87,7 +87,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from './components/Error';
+import RestaurantMenu from "./components/RestaurantMenu";
 import { CDN_URL } from "./utils/constants";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
 const styleCard = {
     backgroundColor: "#f0f0f0",
@@ -96,7 +101,7 @@ const styleCard = {
 const RestaurantCard = (props) => {
     const { resData } = props;
     const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, deliveryTime } = resData.info;
-    console.log(resData);
+    // console.log(resData);
 
     return (
         <div className="restaurant-card" style={styleCard}>
@@ -117,11 +122,38 @@ const AppLayout = () => {
     return (
         <div className="app">
             <Header />
-            <Body />
+            <Outlet />
         </div>
     )
 }
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact/>,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      }
+    ],
+    errorElement: <Error />
+  },
+
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout />)
+root.render(<RouterProvider router = {appRouter} />)
